@@ -21,7 +21,7 @@
 
   //This is just a template or class for Wagon
   function Wagon(Capacity, Passengers) {
-    this.Capacity = capacity;
+    this.Capacity = Capacity;
     this.Passengers = [];
   }
 
@@ -33,7 +33,7 @@
 
   //This function is to define the wagon capacity with an empty array of passengers
   function makeWagon(capacity) {
-    return new Wagon(capacity, this.passengers);
+    return new Wagon(capacity, this.Passengers);
   }
 
   //This function will add the amount to traveler randomly
@@ -84,10 +84,10 @@
 
 function join(wagon,traveler){
   // length start with 0. so, less than only needed to make sure it doesn't exceed capacity
-    if (wagon.passengers.length < wagon.capacity)
+    if (wagon.Passengers.length < wagon.Capacity)
     {
-      wagon.passengers[wagon.passengers.length] = traveler;
-      console.log("passengers count " + wagon.passengers.length);
+      wagon.Passengers[wagon.Passengers.length] = traveler;
+      console.log("passengers count " + wagon.Passengers.length);
     }
     else {
       console.log("Sorry capacity exceeded");
@@ -105,13 +105,13 @@ join(wagon, traveler6);
 
 function quarantine(wagon)
 {
-for(let i = 0; i < wagon.passengers.length; i++)
+for(let i = 0; i < wagon.Passengers.length; i++)
 {
-  if (wagon.passengers[i].Healthy) {
-    console.log(wagon.passengers[i].Name + " is healthy - false");
+  if (wagon.Passengers[i].Healthy) {
+    console.log(wagon.Passengers[i].Name + " is healthy - false");
   }
   else {
-    console.log(wagon.passengers[i].Name + " is sick - true");
+    console.log(wagon.Passengers[i].Name + " is sick - true");
   }
 }
 }
@@ -122,8 +122,8 @@ quarantine(wagon);
 
 function food(wagon) {
 let totalAmount = 0;
-for (var i = 0; i < wagon.passengers.length; i++) {
-  totalAmount = totalAmount + wagon.passengers[i].Amt;
+for (var i = 0; i < wagon.Passengers.length; i++) {
+  totalAmount = totalAmount + wagon.Passengers[i].Amt;
 }
 return totalAmount;
 }
